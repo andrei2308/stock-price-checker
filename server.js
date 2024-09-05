@@ -18,8 +18,9 @@ app.use(helmet({
   },
   contentSecurityPolicy: {    
     directives: {
-      defaultSrc: ["'self'"],
-      styleSrc: ['style.com'],
+      defaultSrc: ["'self'"],  
+      scriptSrc: ["'self'"],   
+      styleSrc: ["'self'"],    
     }
   }
 }));
