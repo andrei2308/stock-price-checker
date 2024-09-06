@@ -73,10 +73,6 @@ module.exports = function (app) {
             ]
           })
         });
-        res.json({
-          stockData: stockDataArray
-        });
-
       } else {
         res.status(400).json({ error: 'Invalid stock query' });
       }
