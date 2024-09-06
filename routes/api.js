@@ -18,7 +18,8 @@ module.exports = function (app) {
         };
         return {
           symbol: stockSymbol,
-          price: mockPrices[stockSymbol] || 100.00  // Default price if stock isn't found
+          price: mockPrices[stockSymbol] || 100.00, // Default price if stock isn't found
+          likes:handleLikes(stockSymbol,like)
         };
       }
 
