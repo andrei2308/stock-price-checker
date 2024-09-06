@@ -47,17 +47,31 @@ module.exports = function (app) {
           }
         });
 
-      } else if (Array.isArray(stock)) {
+      } else if (Array.isArray(stock)&&stock.length===2) {
         // Multiple stocks case
         let stockDataArray = stock.map(stockSymbol => {
-          const stockData = fetchStockData(stockSymbol); 
-          let likes = handleLikes(stockSymbol, like);  
+          const stockData1=fetchStockData(stock[0]);
+          const stockData2=fetchStockData(stock[1]);   
+          let likes1 = handleLikes(stock[0],like);
+          let likes2 = handleLikes(stock[1],like);
 
-          return {
-            symbol: stockData.symbol.toString(),
-            price: Number(stockData.price),
-            likes: Number(likes)
-          };
+          let rel_likes1 = likes1-likes2;
+          let rel_likes2 = likes2-likes1;
+
+          res.json({
+            stockData: [
+              {
+                symbol: stockData1.symbol.toString(),
+                price: Number(stockData1.price),
+                rel_likes : Number(rel_likes1)
+              },
+              {
+                symbol: stockData2.symbol.toString(),
+                price: Number(stockData2.price),
+                rel_likes : Number(rel_likes2)
+              }
+            ]
+          })
         });
         res.json({
           stockData: stockDataArray
