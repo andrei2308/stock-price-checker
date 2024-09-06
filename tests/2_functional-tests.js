@@ -7,7 +7,6 @@ chai.use(chaiHttp);
 
 suite('Functional Tests', function() {
   
-  // Test 1: Viewing one stock
   test('Viewing one stock: GET request to /api/stock-prices/', function(done) {
     chai.request(server)
       .get('/api/stock-prices')
@@ -23,7 +22,6 @@ suite('Functional Tests', function() {
       });
   });
 
-  // Test 2: Viewing one stock and liking it
   test('Viewing one stock and liking it: GET request to /api/stock-prices/', function(done) {
     chai.request(server)
       .get('/api/stock-prices')
@@ -41,7 +39,6 @@ suite('Functional Tests', function() {
       });
   });
 
-  // Test 3: Viewing the same stock and liking it again
   test('Viewing the same stock and liking it again: GET request to /api/stock-prices/', function(done) {
     chai.request(server)
       .get('/api/stock-prices')
@@ -59,7 +56,6 @@ suite('Functional Tests', function() {
       });
   });
 
-  // Test 4: Viewing two stocks
   test('Viewing two stocks: GET request to /api/stock-prices/', function(done) {
     chai.request(server)
       .get('/api/stock-prices')
@@ -76,7 +72,6 @@ suite('Functional Tests', function() {
       });
   });
 
-  // Test 5: Viewing two stocks and liking them
   test('Viewing two stocks and liking them: GET request to /api/stock-prices/', function(done) {
     chai.request(server)
       .get('/api/stock-prices')

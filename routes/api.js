@@ -1,7 +1,7 @@
 'use strict';
 
-const axios = require('axios'); // Assuming axios is used for fetching stock data
-let stockLikes = {};  // To store likes for each stock (this should be in a database in a real app)
+
+let stockLikes = {}; 
 
 module.exports = function (app) {
 
