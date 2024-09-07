@@ -37,14 +37,13 @@ module.exports = function (app) {
       // Single stock case
       if (typeof stock === 'string') {
         const stockData = fetchStockData(stock);  // Fetch stock data
-        let likes = handleLikes(stock, like);  // Handle likes for this stock
 
         // Respond with stockData containing symbol, price, and likes
         res.json({
           stockData: {
             symbol: stockData.symbol.toString(),
             price: Number(stockData.price),
-            likes: Number(likes)
+            likes: Number(stockData.likes)
           }
         });
 
@@ -53,8 +52,8 @@ module.exports = function (app) {
         let stockDataArray = stock.map(stockSymbol => {
           const stockData1=fetchStockData(stock[0]);
           const stockData2=fetchStockData(stock[1]);   
-          let likes1 = handleLikes(stock[0],like);
-          let likes2 = handleLikes(stock[1],like);
+          let likes1 = stockData1.likes
+          let likes2 = stockData2.likes
 
           let rel_likes1 = likes1-likes2;
           let rel_likes2 = likes2-likes1;
